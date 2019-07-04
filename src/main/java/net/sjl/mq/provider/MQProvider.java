@@ -4,6 +4,7 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.MessageProperties;
 import net.sjl.mq.base.MQBaseUtil;
+import org.junit.Test;
 
 import java.util.Random;
 
@@ -16,17 +17,13 @@ import java.util.Random;
  */
 public class MQProvider {
 
-    public static MQBaseUtil mqBaseUtil = new MQBaseUtil("127.0.0.1", 5672, "mimajiushitest", "test");
+    public static MQBaseUtil mqBaseUtil = new MQBaseUtil("47.95.221.106", 5672, "shijialei", "shijialei");
 
     public static String queue = "MQUseTestMethod";
 
     private final static String EXCHANGE_NAME = "ex_log";
 
     private final static String[] sers = {"1","2","3"};
-
-    public static void main(String[] args) {
-        sendTopicExchangesMessage();
-    }
 
     /**
      * @Description: 最简单的发送方式
@@ -38,7 +35,8 @@ public class MQProvider {
      * @Return: void
      * @Throws: []
      */
-    public static void sendSimpleMessage() {
+    @Test
+    public void sendSimpleMessage() {
         // 初始化链接
         Connection connection = mqBaseUtil.initConnection();
         try {
@@ -71,7 +69,8 @@ public class MQProvider {
      * @Return: void
      * @Throws: []
      */
-    public static void sendWorkQueueMessage() {
+    @Test
+    public void sendWorkQueueMessage() {
         // 初始化链接
         Connection connection = mqBaseUtil.initConnection();
         try {
@@ -107,7 +106,8 @@ public class MQProvider {
      * @Return: void
      * @Throws: []
      */
-    public static void sendSimpleExchangesMessage() {
+    @Test
+    public void sendSimpleExchangesMessage() {
         // 初始化链接
         Connection connection = mqBaseUtil.initConnection();
         try {
@@ -142,7 +142,8 @@ public class MQProvider {
      * @Return: void
      * @Throws: []
      */
-    public static void sendRouteExchangesMessage() {
+    @Test
+    public void sendRouteExchangesMessage() {
         // 初始化链接
         Connection connection = mqBaseUtil.initConnection();
         try {
@@ -177,7 +178,8 @@ public class MQProvider {
      * @Return: void
      * @Throws: []
      */
-    public static void sendTopicExchangesMessage() {
+    @Test
+    public void sendTopicExchangesMessage() {
         // 初始化链接
         Connection connection = mqBaseUtil.initConnection();
         try {

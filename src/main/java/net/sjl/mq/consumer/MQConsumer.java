@@ -4,6 +4,7 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.QueueingConsumer;
 import net.sjl.mq.base.MQBaseUtil;
+import org.junit.Test;
 
 import java.io.IOException;
 import java.util.Random;
@@ -17,7 +18,7 @@ import java.util.Random;
  */
 public class MQConsumer {
 
-    public static MQBaseUtil mqBaseUtil = new MQBaseUtil("127.0.0.1", 5672, "mimajiushitest", "test");
+    public static MQBaseUtil mqBaseUtil = new MQBaseUtil("47.95.221.106", 5672, "shijialei", "shijialei");
 
     public static String queue = "MQUseTestMethod";
 
@@ -26,10 +27,6 @@ public class MQConsumer {
     private final static String[] sers = {"1","2","3"};
 
     private final static String[] topics = {"com.*","*.ff","*.dd"};
-
-    public static void main(String[] args) {
-        getTopicExchangesMessage();
-    }
 
     /**
      * @Description: 最简单的发送方式
@@ -41,7 +38,8 @@ public class MQConsumer {
      * @Return: void
      * @Throws: []
      */
-    public static void getSimpleMessage() {
+    @Test
+    public void getSimpleMessage() {
         // 创建连接
         Connection connection = mqBaseUtil.initConnection();
         try {
@@ -76,7 +74,8 @@ public class MQConsumer {
      * @Return: void
      * @Throws: []
      */
-    public static void getWorkQueueMessage() {
+    @Test
+    public void getWorkQueueMessage() {
         // 创建连接
         Connection connection = mqBaseUtil.initConnection();
         try {
@@ -120,7 +119,8 @@ public class MQConsumer {
      * @Return: void
      * @Throws: []
      */
-    public static void getSimpleExchangesMessage() {
+    @Test
+    public void getSimpleExchangesMessage() {
         // 创建连接
         Connection connection = mqBaseUtil.initConnection();
         try {
@@ -164,7 +164,8 @@ public class MQConsumer {
      * @Return: void
      * @Throws: []
      */
-    public static void getRouteExchangesMessage() {
+    @Test
+    public void getRouteExchangesMessage() {
         // 创建连接
         Connection connection = mqBaseUtil.initConnection();
         try {
@@ -211,7 +212,8 @@ public class MQConsumer {
      * @Return: void
      * @Throws: []
      */
-    public static void getTopicExchangesMessage() {
+    @Test
+    public void getTopicExchangesMessage() {
         // 创建连接
         Connection connection = mqBaseUtil.initConnection();
         try {
